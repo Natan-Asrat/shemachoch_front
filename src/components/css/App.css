@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,700;1,400;1,800&display=swap');
+
+*{
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+}
+
+html{
+  min-width: 940px;
+  background: #283342;
+  max-width: 1200px;
+}
+
+body{
+  padding: 0px 0px 0px 0px;
+}
