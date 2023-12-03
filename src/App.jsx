@@ -5,7 +5,8 @@ import './components/css/App.css'
 import GroupsHeader from './components/GroupsHeader';
 import Dashboard from './components/Dashboard';
 import Login from './components/Login';
-
+import Members from './components/Members';
+import AddMember from './components/AddMember'
 
 function App(){
 
@@ -24,7 +25,9 @@ function App(){
 
         <Route path={'/goods'} element={<> <Sidebar/> <GroupsHeader/> </>}/>
 
-        <Route path={'/members'} element={<> <Sidebar/> <GroupsHeader/> </>}/>
+        <Route path={'/members'} element={<> <Sidebar/> <GroupsHeader/> <Members/> </>}/>
+
+        <Route path={'/members/addMember'} element={<> <Sidebar/> <GroupsHeader/> <AddMember/> </> } />
 
         <Route path={'/reports'} element={<> <Sidebar/> <GroupsHeader/> </>}/>
 

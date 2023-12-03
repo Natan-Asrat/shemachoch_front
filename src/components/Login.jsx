@@ -31,7 +31,7 @@ function Login(props) {
     e.preventDefault();
     setShow(true);
     try {
-      const recaptcha = new RecaptchaVerifier(auth, "recaptcha", {});
+      const recaptcha = new RecaptchaVerifier(auth, "recaptcha",{});
       const confirmation = await signInWithPhoneNumber(auth, phone, recaptcha);
       setUser(confirmation);
     } catch (err) {

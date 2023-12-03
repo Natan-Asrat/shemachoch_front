@@ -1,0 +1,15 @@
+.groups{
+  display: flex;
+  gap: 20px;
+}
+
+.group-middle{
+  padding: 10px 20px;
+  border: solid rgb(74, 71, 71) 1px;
+  border-radius: 5px;
+  font-size: 1.2vw;
+  font-weight: bold;
+  color: rgb(55, 55, 55);
+  background-color: #efe9e9;
+  cursor: pointer;
+}
