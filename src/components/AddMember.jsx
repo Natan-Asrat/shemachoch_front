@@ -13,6 +13,7 @@ function AddMember(){
     quantitySugar:0
   });
 
+  // console.log(formData);
 
   const handleChange=(event)=>{
     setFormData((prevValue)=>{
@@ -75,7 +76,7 @@ function AddMember(){
           {/* <p>Quantity of Oil</p>
           <input type="number" name="quantityOil" id="" onChange={handleChange}/> */}
           
-          <p>Quantity of Oil</p>
+          <p>Quantity of Sugar</p>
           <select name="quantitySugar" className="drop-down"  onChange={handleChange} >
           <option value="0">None</option>
             <option value="3"> 3 </option>
@@ -87,7 +88,7 @@ function AddMember(){
           {/* <p>Quantity of Sugar</p>
           <input type="number" name="quantitySugar"  id="" onChange={handleChange}/> */}
           
-          <p>Quantity of Sugar</p>
+          <p>Quantity of Oil</p>
           <select  name="quantityOil" className="drop-down" onChange={handleChange}>
           <option value="0">None</option>
             <option value="3"> 3 </option>

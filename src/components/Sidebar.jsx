@@ -14,11 +14,10 @@ function Sidebar() {
   const [username, setUsername] = useState("");
   const [position, setPosition] = useState("");
   useEffect(()=>{
-    fetch('https://5l6k38tx-8000.uks1.devtunnels.ms/app/user/?format=json', {
+    fetch('https://shemachoch.onrender.com/app/user/?format=json', {
       method: 'GET',
       headers: {
         'Authorization': localStorage.getItem('user'),
-        'Content-Type': 'application/json',
       }})
     .then(response => response.json())
     .then(data => {

@@ -8,20 +8,17 @@ function Dashboard() {
   const [loadingTable, setLoadingTable] = useState(true);
 
  useEffect(()=>{
-  fetch('https://5l6k38tx-8000.uks1.devtunnels.ms/app/members/?format=json', {
+  fetch('https://shemachoch.onrender.com/app/members.json', {
     method: 'GET',
     headers: {
       'Authorization': localStorage.getItem('user'),
-      'Content-Type': 'application/json',
     }})
   .then(response => response.json())
   .then(data => {
     
     setMembersData(Array.isArray(data) ? data : [])
-    console.log(membersData.length)
-    if(membersData.length>0){
-      setLoadingTable(false)
-    }
+    setLoadingTable(false)
+    
     // else{
     //   try {
     //     const auth = getAuth()
