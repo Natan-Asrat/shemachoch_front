@@ -1,8 +1,46 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./css/Members.css";
 import Groups from "./Groups";
+import ClipLoader from 'react-spinners/ClipLoader';
+
 function Members() {
+
+ const [membersData,setMembersData]=useState([]);
+//   {
+//     'id': '',
+//     'name': '',
+//     'group': '',
+//     'quantityOil': '',
+//     'quantitySugar': '',
+//     'hasReceivedOil': '',
+//     'hasReceivedSugar': ''
+
+//   }
+//  ]);
+ const [loadingTable, setLoadingTable] = useState(true);
+
+ useEffect(()=>{
+  fetch('https://shemachoch.onrender.com/app/members/?format=json', {
+    method: 'GET',
+    headers: {
+      'Authorization': localStorage.getItem('user'),
+      'Content-Type': 'application/json',
+    }})
+  .then(response => response.json())
+  .then(data => {
+    
+    setMembersData(Array.isArray(data) ? data : [])
+    console.log(membersData.length)
+    if(membersData.length>0){
+      setLoadingTable(false)
+    }
+  })
+},[])
+
+
+
+
   return (
     <div className="members">
       <div className="members-top">
@@ -52,7 +90,7 @@ function Members() {
 
         <div className="members-table" border='1'>
         <table>
-              <tr>
+              <tr className="header">
                 <th>Coupon Number</th>
                 <th>Member name</th>
                 <th>Member Group</th>
@@ -61,37 +99,45 @@ function Members() {
                 <th>Sugar</th>
                 <th></th>
               </tr>
-              <tr>
-                <td>001</td>
-                <td>Natnael Mulugeta</td>
-                <td>Group 1</td>
-                <td>5 litre</td>
-                <td><input type="radio"/></td>
-                <td>3kg</td>
-                <td><input type="checkbox" /></td>
+              {loadingTable ? 
+              <tr >
+                <th colSpan={7}>
+                <ClipLoader color={'#123abc'} loading={true} size={30} />
+                </th>
               </tr>
-              <tr>
-                <td>002</td>
-                <td>Kaleab Alebachew</td>
-                <td>Group 2</td>
-                <td> - </td>
-                <td><input type="radio" /></td>
-                <td>5 kg</td>
-                <td><input type="checkbox"/></td>
-              </tr>
-              <tr>
-                <td>002</td>
-                <td>Kaleab Alebachew</td>
-                <td>Group 3</td>
-                <td> - </td>
-                <td><input type="radio" /></td>
-                <td>5 kg</td>
-                <td><input type="checkbox"/></td>
-              </tr>
+              
+              : 
+              membersData.map((item)=>{
+                  return(
+                  <tr>
+                    <td>{item.id}</td>
+                    <td>{item.name}</td>
+                    <td> Group {item.group }</td>
+                    <td>{item.quantityOil} litre</td>
+                    <td><input type="radio" checked={item.hasReceivedOil}/></td>
+                    <td>{item.quantitySugar} kg</td>
+                    <td><input type="checkbox" checked={item.hasReceivedSugar}/></td>
+                  </tr>
+                  )
+                })
+          }
+          {/* {membersData.map((item)=>{
+            return(
+            <tr>
+              <td>{item.id}</td>
+              <td>{item.name}</td>
+              <td> Group {item.group }</td>
+              <td>{item.quantityOil} litre</td>
+              <td><input type="radio" checked={item.hasReceivedOil}/></td>
+              <td>{item.quantitySugar} kg</td>
+              <td><input type="checkbox" checked={item.hasReceivedSugar}/></td>
+            </tr>
+            )
+          })} */}
             </table>
         </div>
       </div>
   );
-}
+  }
 
 export default Members;

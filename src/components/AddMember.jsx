@@ -1,19 +1,21 @@
 import React, { useState } from "react";
-import './css/AddMember.css'
-import {Link } from 'react-router-dom'
+import './css/AddMember.css';
+import {Link } from 'react-router-dom';
+import {auth} from './firebaseConfig';
+import {getAuth} from 'firebase/auth'
 
 function AddMember(){
 
-  const[state,setState]=useState({
-    memberName:'',
-    ResidentIdNumber:'',
-    QuantityOfOil:'',
-    QuantityOfSugar:''
+  const[formData,setFormData]=useState({
+    name:'',
+    residentId:'',
+    quantityOil:0,
+    quantitySugar:0
   });
 
 
   const handleChange=(event)=>{
-    setState((prevValue)=>{
+    setFormData((prevValue)=>{
       return{
         ...prevValue,
         [event.target.name]:event.target.value
@@ -21,11 +23,29 @@ function AddMember(){
     })
   }
 
-  // console.log(state);
+  // console.log(formData);
 
-  const handleSubmit=(event)=>{
+  const handleAddMembers=(event)=>{
     event.preventDefault();
     // console.log('saved');
+   
+    fetch('https://shemachoch.onrender.com/app/add_member/', {
+      method: 'POST',
+      headers: {
+        'Authorization': localStorage.getItem('user'),
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // Handle the response data as desired
+        console.log(data);
+      })
+      .catch((error) => {
+        // Handle any errors that might occur
+        console.error(error);
+      });
   }
 
   return(
@@ -40,28 +60,42 @@ function AddMember(){
       </div>
 
       <div>
-        <form action="" className="add-member-middle">
+        <form onSubmit={handleAddMembers} className="add-member-middle" >
         <div>
           <p>Member Name</p>
-          <input type="text" name="memberName" id="" onChange={handleChange}/>
+          <input type="text" name="name" id="" onChange={handleChange}/>
         </div>
 
         <div>
           <p>Resident ID Number</p>
-          <input type="text" name="ResidentIdNumber" id="" onChange={handleChange} />
+          <input type="text" name="residentId" id="" onChange={handleChange} />
         </div>
 
         <div>
+          {/* <p>Quantity of Oil</p>
+          <input type="number" name="quantityOil" id="" onChange={handleChange}/> */}
+          
           <p>Quantity of Oil</p>
-          <input type="text" name="QuantityOfOil" id="" onChange={handleChange}/>
+          <select name="quantitySugar" className="drop-down"  onChange={handleChange} >
+          <option value="0">None</option>
+            <option value="3"> 3 </option>
+            <option value="5"> 5 </option>
+          </select>
         </div>
 
         <div>
+          {/* <p>Quantity of Sugar</p>
+          <input type="number" name="quantitySugar"  id="" onChange={handleChange}/> */}
+          
           <p>Quantity of Sugar</p>
-          <input type="text" name="QuantityOfSugar" id="" onChange={handleChange}/>
+          <select  name="quantityOil" className="drop-down" onChange={handleChange}>
+          <option value="0">None</option>
+            <option value="3"> 3 </option>
+            <option value="5"> 5 </option>
+          </select>
         </div>
 
-        <button className="save-btn" onClick={handleSubmit}>Save</button>
+        <button className="save-btn" type="submit">Save</button>
         </form>
         
 

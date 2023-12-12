@@ -1,7 +1,46 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./css/Dashboard.css";
+import ClipLoader from 'react-spinners/ClipLoader';
+import {getAuth, signInWithCustomToken, RecaptchaVerifier} from 'firebase/auth'
 
 function Dashboard() {
+  const [membersData,setMembersData]=useState([]);
+  const [loadingTable, setLoadingTable] = useState(true);
+
+ useEffect(()=>{
+  fetch('https://5l6k38tx-8000.uks1.devtunnels.ms/app/members/?format=json', {
+    method: 'GET',
+    headers: {
+      'Authorization': localStorage.getItem('user'),
+      'Content-Type': 'application/json',
+    }})
+  .then(response => response.json())
+  .then(data => {
+    
+    setMembersData(Array.isArray(data) ? data : [])
+    console.log(membersData.length)
+    if(membersData.length>0){
+      setLoadingTable(false)
+    }
+    // else{
+    //   try {
+    //     const auth = getAuth()
+    //     console.log(localStorage.getItem('refresh'))
+    //   signInWithCustomToken(auth, localStorage.getItem('refresh')).then(
+    //     (userCredential) => {
+    //       // Signed in
+    //       console.log(userCredential.user);}
+    //       // ...
+    //   );
+    //   // u = getAuth().currentUser
+    //   // localStorage.setItem('user', u.getIdToken())
+    //   // localStorage.setItem('refresh',u['refreshToken'])
+    // } catch (err) {
+    //   console.error(err);
+    // }
+    // }
+  })
+},[])
   return (
     <div className="dashboard">
       <div>
@@ -61,7 +100,7 @@ function Dashboard() {
         </div>
 
         <div className="dashboard-bottom" border='1'>
-          <div>
+          {/* <div>
             <table>
               <tr>
                 <th>Coupon Number</th>
@@ -96,8 +135,39 @@ function Dashboard() {
                 <td><input type="checkbox"/></td>
               </tr>
             </table>
-          </div>
-
+          </div> */}
+          <div className="dashboard-table" border='1'>
+        <table>
+              <tr className="header">
+                <th>Coupon Number</th>
+                <th>Member name</th>
+                <th>Oil</th>
+                <th></th>
+                <th>Sugar</th>
+                <th></th>
+              </tr>
+              {loadingTable ? 
+              <tr >
+                <th colSpan={6}>
+                <ClipLoader color={'#123abc'} loading={true} size={30} />
+                </th>
+              </tr>
+              
+              : 
+          membersData.map((item)=>{
+            return(
+            <tr>
+              <td>{item.id}</td>
+              <td>{item.name}</td>
+              <td>{item.quantityOil} litre</td>
+              <td><input type="radio" checked={item.hasReceivedOil}/></td>
+              <td>{item.quantitySugar} kg</td>
+              <td><input type="checkbox" checked={item.hasReceivedSugar}/></td>
+            </tr>
+            )
+          })}
+            </table>
+        </div>
           <div className="btn-container">
             <button className="search-btn">Search members</button>
             <button className="distribute-btn">+Distribute good</button>

@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import "./css/Login.css";
-import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
+import { RecaptchaVerifier, getAuth, signInWithPhoneNumber } from "firebase/auth";
 import { auth } from "./firebaseConfig";
-import { useNavigate } from "react-router-dom";
+
 
 function Login(props) {
   const [Login, setLogin] = useState({
@@ -44,7 +44,10 @@ function Login(props) {
     try {
       const data = await user.confirm(otp);
       console.log(data);
+      localStorage.setItem('user', data.user['accessToken'])
+      // localStorage.setItem('refresh', data.user['refreshToken'])
       props.setToken(true);
+      
     } catch (err) {
       console.error(err);
     }
@@ -54,7 +57,7 @@ function Login(props) {
     <div className="login">
       <div className="login-main-container">
         <form>
-          <div className="logo-and-detail">
+          {/* <div className="logo-and-detail">
             <img src="images/user.png" alt="" className="login-logo" />
             <p>User Name</p>
           </div>
@@ -76,7 +79,10 @@ function Login(props) {
             <p>Password</p>
           </div>
 
-          <input type="password" name="password" className="login-inputs" />
+          <input type="password" name="password" className="login-inputs" /> */}
+           
+           <p className="paragraph">Enter Phone Number</p>
+
           <PhoneInput
             className="phoneNumber-component"
             country={"et"}

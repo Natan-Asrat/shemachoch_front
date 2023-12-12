@@ -1,10 +1,41 @@
-import React from "react";
+import React, {useEffect,  useState } from "react";
 import "./css/Sidebar.css";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, Navigate, useNavigate } from "react-router-dom";
+import { getAuth } from "firebase/auth";
 
 function Sidebar() {
   const styles = {
     background: "#009099",
+  };
+
+  let navigate = useNavigate();
+
+  const [logout, setLogout] = useState(false);
+  const [username, setUsername] = useState("");
+  const [position, setPosition] = useState("");
+  useEffect(()=>{
+    fetch('https://5l6k38tx-8000.uks1.devtunnels.ms/app/user/?format=json', {
+      method: 'GET',
+      headers: {
+        'Authorization': localStorage.getItem('user'),
+        'Content-Type': 'application/json',
+      }})
+    .then(response => response.json())
+    .then(data => {
+      setUsername(data.name)
+      setPosition(data.position)
+    } )
+  },[])
+  const openDialog = () => {
+    setLogout(!logout);
+  };
+  const closeDialog = () => {
+    setLogout(false);
+  };
+  const handleLogout = () => {
+    getAuth().signOut();
+    localStorage.removeItem('user');
+    navigate("/login");
   };
 
   return (
@@ -17,8 +48,8 @@ function Sidebar() {
 
       <div className="sidebar-middle">
         <div>
-          <h2>Eden</h2>
-          <h3>Super Admin</h3>
+          <h2>{username}</h2>
+          <h3>{position}</h3>
         </div>
 
         <div className="dot-container">
@@ -86,19 +117,40 @@ function Sidebar() {
 
           <hr />
 
-          <NavLink
+          {/* <NavLink
             className="link"
-            to="/settings"
+            to="#"
             style={({ isActive }) => (isActive ? styles : null)}
+          > */}
+          <div
+            className="menu-item-container"
+            type="button"
+            onClick={openDialog}
           >
-            <div className="menu-item-container">
-              <img src="images/settings.png" alt="" className="sidebar-icons" />
-              <Link to="/settings" className="link">
-                <li className="sidebar-menus">Settings</li>
-              </Link>
+            <img
+              src="images/logout.png"
+              alt=""
+              style={{ filter: 'invert(1) sepia(1) saturate(10000%) hue-rotate(359deg)' }}
+              className="sidebar-icons-logout"
+            />
+            <Link to="#" className="link">
+              <li className="sidebar-menus logout" style={{ color: 'red' }}>Log out</li>
+            </Link>
+          </div>
+          {logout ? (
+            <div className="modal">
+              <div className="modal-content">
+                <h2>Confirmation</h2>
+                <p>Are you sure you want to logout?</p>
+                <div>
+                  <button onClick={handleLogout}>Logout</button>
+                  <button onClick={closeDialog}>Back</button>
+                </div>
+              </div>
             </div>
-          </NavLink>
+          ) : null}
         </ul>
+        {/* </NavLink> */}
       </div>
     </div>
   );

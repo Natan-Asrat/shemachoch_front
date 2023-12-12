@@ -1,7 +1,7 @@
 .add-member{
   padding: 30px 35px;
   background: #EDF1F5;
-  width: 100%;
+  width: 101.5%;
   height: 100vh;
   margin-left: 256px;
 }
@@ -15,15 +15,31 @@
   display: grid;
   grid-template-columns: 500px 500px;
   row-gap: 40px;
+  align-items: center;
 }
 
 .add-member-middle input{
   width: 400px;
   padding: 10px 2px;
+  margin-bottom: 20px;
+  background:#E3EBF3;
+  border: 1px solid rgb(174, 173, 171);
+  outline: none;
+}
+
+.drop-down{
+  width: 405px;
+  padding: 10px 2px;
+  margin-bottom: 20px;
+  background:#E3EBF3;
+  border: 1px solid rgb(174, 173, 171);
+  outline: none;
 }
 
 .add-member-middle p{
-  margin-bottom: 3px;
+  margin-bottom: 8px;
+  font-weight: bold;
+  letter-spacing: 0.1px;
 }
 
 .save-btn{
