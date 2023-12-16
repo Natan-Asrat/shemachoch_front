@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import './css/AddMember.css';
-import {Link } from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import {auth} from './firebaseConfig';
 import {getAuth} from 'firebase/auth'
 
@@ -12,6 +12,8 @@ function AddMember(){
     quantityOil:0,
     quantitySugar:0
   });
+
+  const navigate=useNavigate();
 
   // console.log(formData);
 
@@ -29,7 +31,6 @@ function AddMember(){
   const handleAddMembers=(event)=>{
     event.preventDefault();
     // console.log('saved');
-   
     fetch('https://shemachoch.onrender.com/app/add_member/', {
       method: 'POST',
       headers: {
@@ -41,8 +42,13 @@ function AddMember(){
       .then((response) => response.json())
       .then((data) => {
         // Handle the response data as desired
-        alert(data.residentId);
-
+        if(data.residentId!='shemach with this residentId already exists.'){
+          alert('Shemach with an Id of '+ data.residentId +' been added');
+          navigate('/members');
+        } else{
+          alert(data.residentId);
+        }
+        
       })
       .catch((error) => {
         // Handle any errors that might occur
