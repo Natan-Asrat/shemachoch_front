@@ -9,8 +9,8 @@ function AddMember(){
   const[formData,setFormData]=useState({
     name:'',
     residentId:'',
-    quantityOil:0,
-    quantitySugar:0
+    quantityOil:'0',
+    quantitySugar:'0'
   });
 
   const navigate=useNavigate();
@@ -31,7 +31,7 @@ function AddMember(){
   const handleAddMembers=(event)=>{
     event.preventDefault();
     // console.log('saved');
-    fetch('https://shemachoch.onrender.com/app/add_member/?format=json', {
+    fetch('https://shemachoch.onrender.com/app/add_member.json', {
       method: 'POST',
       headers: {
         'Authorization': localStorage.getItem('user'),
@@ -43,7 +43,7 @@ function AddMember(){
       .then((data) => {
         // Handle the response data as desired
         if(data.residentId!='shemach with this residentId already exists.'){
-          alert('Shemach with an Id of '+ data.residentId +' been added');
+          alert('Shemach with an Id of '+data.residentId+' has been added');
           navigate('/members');
         } else{
           alert(data.residentId);
@@ -52,6 +52,7 @@ function AddMember(){
       })
       .catch((error) => {
         // Handle any errors that might occur
+        console.log(error);
         alert(error);
       });
   }
