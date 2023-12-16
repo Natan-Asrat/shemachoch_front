@@ -41,11 +41,12 @@ function AddMember(){
       .then((response) => response.json())
       .then((data) => {
         // Handle the response data as desired
-        console.log(data);
+        alert(data.residentId);
+
       })
       .catch((error) => {
         // Handle any errors that might occur
-        console.error(error);
+        alert(error);
       });
   }
 

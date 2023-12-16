@@ -104,3 +104,30 @@
 .logout{
   color:crimson;
 }
+
+.modal-content{
+  text-align: center;
+}
+
+.modal-content .confirm-btn-container{
+ display: flex;
+ justify-content: center;
+ gap: 10px;
+}
+
+.modal-content h2,p{
+  color: rgb(240, 236, 236);
+}
+
+.confirm-btn-container button{
+  background-color: crimson;
+  border: none;
+  margin: 10px 0px 10px 0px;
+  padding: 3px 15px;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+}
+.confirm-btn-container button:hover{
+  background-color: rgb(249, 37, 80);
+}

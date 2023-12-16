@@ -55,6 +55,10 @@
   margin-top: 5px;
 }
 
+.filter-container p{
+  color: black;
+}
+
 .members-bottom h1{
   font-size: 2vw;
 }

@@ -4,6 +4,7 @@ import "react-phone-input-2/lib/style.css";
 import "./css/Login.css";
 import { RecaptchaVerifier, getAuth, signInWithPhoneNumber } from "firebase/auth";
 import { auth } from "./firebaseConfig";
+// import { useNavigate } from "react-router-dom";
 
 
 function Login(props) {
@@ -11,6 +12,8 @@ function Login(props) {
     userName: "",
     password: "",
   });
+
+  // const navigate=useNavigate();
 
   const[show,setShow]=useState(false);
 
@@ -47,6 +50,7 @@ function Login(props) {
       localStorage.setItem('user', data.user['accessToken'])
       // localStorage.setItem('refresh', data.user['refreshToken'])
       props.setToken(true);
+      // navigate('/');
       
     } catch (err) {
       console.error(err);

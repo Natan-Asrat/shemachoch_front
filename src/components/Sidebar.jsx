@@ -34,7 +34,8 @@ function Sidebar() {
   const handleLogout = () => {
     getAuth().signOut();
     localStorage.removeItem('user');
-    navigate("/login");
+    // navigate("/login");
+    window.location.reload(false);
   };
 
   return (
@@ -141,9 +142,9 @@ function Sidebar() {
               <div className="modal-content">
                 <h2>Confirmation</h2>
                 <p>Are you sure you want to logout?</p>
-                <div>
-                  <button onClick={handleLogout}>Logout</button>
-                  <button onClick={closeDialog}>Back</button>
+                <div className="confirm-btn-container">
+                  <button  onClick={handleLogout}>Logout</button>
+                  <button  onClick={closeDialog}>Back</button>
                 </div>
               </div>
             </div>
