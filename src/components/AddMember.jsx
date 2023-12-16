@@ -31,7 +31,7 @@ function AddMember(){
   const handleAddMembers=(event)=>{
     event.preventDefault();
     // console.log('saved');
-    fetch('https://shemachoch.onrender.com/app/add_member/', {
+    fetch('https://shemachoch.onrender.com/app/add_member/?format=json', {
       method: 'POST',
       headers: {
         'Authorization': localStorage.getItem('user'),

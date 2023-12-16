@@ -39,6 +39,7 @@ function Login(props) {
       setUser(confirmation);
     } catch (err) {
       console.error(err);
+      alert(err);
     }
   };
 
@@ -54,6 +55,7 @@ function Login(props) {
       
     } catch (err) {
       console.error(err);
+      alert(err);
     }
   };
 
