@@ -11,6 +11,12 @@ html{
 
 body{
   padding: 0px 0px 0px 0px;
-  min-width: 1290px;
+  min-width: 850px;
 }
 
+.main-body{
+  display: flex;
+}
+.body-right{
+  width: 100%;
+}

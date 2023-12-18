@@ -3,7 +3,6 @@
   background: #EDF1F5;
   width: calc(100vw-256px);
   height: 100vh;
-  margin-left: 256px;
 }
 
 .add-member-top h1{
@@ -13,22 +12,22 @@
 .add-member-middle{
   margin-top: 70px;
   display: grid;
-  grid-template-columns: 500px 500px;
-  row-gap: 40px;
+  grid-template-columns: 37vw 37vw;
+  gap: 30px;
   align-items: center;
 }
 
 .add-member-middle input{
-  width: 400px;
+  width: 30vw;
   padding: 10px 2px;
-  margin-bottom: 20px;
+  margin-bottom: 0px 10px 20px 0px;
   background:#E3EBF3;
   border: 1px solid rgb(174, 173, 171);
   outline: none;
 }
 
 .drop-down{
-  width: 405px;
+  width: 30.8vw;
   padding: 10px 2px;
   margin-bottom: 20px;
   background:#E3EBF3;

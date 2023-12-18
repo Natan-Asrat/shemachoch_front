@@ -1,9 +1,8 @@
 .edit-quantity{
   padding: 30px 35px;
   background: #EDF1F5;
-  width: 100%;
+  width: calc(100vw-256px);
   height: 100vh;
-  margin-left: 256px;
 }
 
 .edit-quantity-top h1{

@@ -33,19 +33,20 @@ function App(){
   return(
     <Router className="App">
       <Routes>
-        <Route path={'/'} element={<> <Sidebar/> 
-          <GroupsHeader/> <Dashboard/> 
-        </>}/>
+        <Route path={'/'} element={<div className='main-body'> <Sidebar/> 
+          <div className='body-right'><GroupsHeader/> <Dashboard/></div> <div/>
+        </div>}/>
 
-        <Route path={'/goods'} element={<> <Sidebar/> <GroupsHeader/> <Goods/> </>}/>
+        <Route path={'/goods'} element={<div className='main-body'> <Sidebar/> <div className='body-right'><GroupsHeader/> <Goods/>
+          </div>  </div>}/>
 
-        <Route path={'/goods/editQuantity'} element={<> <Sidebar/> <GroupsHeader/> <EditQuantity/> </>}/>
+        <Route path={'/goods/editQuantity'} element={<div className='main-body'> <Sidebar/> <div className='body-right'><GroupsHeader/> <EditQuantity/></div>  </div>}/>
 
-        <Route path={'/members'} element={<> <Sidebar/> <GroupsHeader/> <Members/> </>}/>
+        <Route path={'/members'} element={<div className='main-body'><Sidebar/> <div className='body-right'><GroupsHeader/> <Members/></div>  </div>}/>
 
-        <Route path={'/members/addMember'} element={<> <Sidebar/> <GroupsHeader/> <AddMember/> </> } />
+        <Route path={'/members/addMember'} element={<div className='main-body'> <Sidebar/> <div className='body-right'> <GroupsHeader/> <AddMember/></div> </div> } />
 
-        <Route path={'/reports'} element={<> <Sidebar/> <GroupsHeader/> </>}/>
+        <Route path={'/reports'} element={<div className='main-body'><Sidebar/> <div className='body-right'><GroupsHeader/></div> </div>}/>
 
         <Route path={'/login'} element={<Login setToken={setToken}/>} />
 {/* 
