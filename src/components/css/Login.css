@@ -3,13 +3,13 @@
   display: flex;
   justify-content: center;
   background-color: rgb(255, 255, 255);
-  width: 1536px;
-  height: 705px;
+  width: 100vw;
+  height: 100vh;
   background-color: #4158D0;
   background-color: #F4D03F;
   background-image: url('/src/components/css/shemachochImage.jpg');
   background-repeat: no-repeat;
-  background-position:0px -380px;
+  background-position:0px 0px;
   background-size: cover;
   max-height: 750px;
 }
@@ -61,6 +61,7 @@
   color: rgb(3, 3, 3);
   font-size: 17px;
   font-weight: bold;
+  color: white;
 }
 
 .phoneNumber-component{
