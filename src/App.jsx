@@ -47,7 +47,7 @@ function App(){
 
         <Route path={'/reports'} element={<> <Sidebar/> <GroupsHeader/> </>}/>
 
-        {/* <Route path={'/login'} element={<Login setToken={setToken}/>} /> */}
+        <Route path={'/login'} element={<Login setToken={setToken}/>} />
 {/* 
         <Route path={'/login'} element={<Login/>} /> */}
 

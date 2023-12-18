@@ -6,11 +6,11 @@
 }
 
 html{
-  
   background: #283342;
-  
 }
 
 body{
   padding: 0px 0px 0px 0px;
+  min-width: 1290px;
 }
+

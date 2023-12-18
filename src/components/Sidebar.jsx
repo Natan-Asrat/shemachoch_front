@@ -97,7 +97,7 @@ function Sidebar() {
             <div className="menu-item-container">
               <img src="images/members.png" alt="" className="sidebar-icons" />
               <Link to="/members" className="link">
-                <li className="sidebar-menus">Memebers</li>
+                <li className="sidebar-menus">Members</li>
               </Link>
             </div>
           </NavLink>
