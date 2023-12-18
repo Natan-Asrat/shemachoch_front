@@ -1,7 +1,7 @@
 .dashboard{
   padding: 30px 35px;
   background: #EDF1F5;
-  width: calc(100vw-256px);
+  width: calc(100vw);
   height: 100%;
 }
 
