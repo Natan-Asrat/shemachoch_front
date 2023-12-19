@@ -20,4 +20,5 @@ body{
 }
 .body-right{
   width: 100%;
+  min-width: 1000px;
 }

@@ -9,12 +9,10 @@ import Members from './components/Members';
 import AddMember from './components/AddMember'
 import Goods from './components/Goods';
 import EditQuantity from './components/EditQuantity';
-import {getAuth} from 'firebase/auth'
+import {getAuth} from 'firebase/auth';
 
 
 function App(){
-
-  
 
   const [token,setToken]=useState(null);
 
