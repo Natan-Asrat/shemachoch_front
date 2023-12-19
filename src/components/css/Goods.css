@@ -1,8 +1,9 @@
 .goods{
   padding: 30px 35px;
   background: #EDF1F5;
-  width: calc(100vw-256px);
+  width: calc(100vw-344px);
   height: 100vh;
+  min-width: 650px;
 }
 
 .goods-top{
@@ -44,7 +45,7 @@
 
 .goods-oil-table .oil-th{
   margin: auto;
-  padding: 15px 63px;
+  padding: 15px 5vw;
   font-size: 1vw;
   height: 1vh;
   font-weight: 600;
@@ -52,7 +53,7 @@
 
 .goods-sugar-table .sugar-th{
   margin: auto;
-  padding: 15px 60px;
+  padding: 15px 5vw;
   font-size: 1vw;
   height: 1vh;
   font-weight: 600;

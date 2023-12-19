@@ -5,20 +5,10 @@
   margin: 0;
 }
 
-html{
-  background: #283342;
-
-}
-
-body{
-  padding: 0px 0px 0px 0px;
-  min-width: 1200px;
-}
-
 .main-body{
   display: flex;
 }
+
 .body-right{
-  width: 100%;
-  min-width: 1000px;
+  width: 100vw;
 }

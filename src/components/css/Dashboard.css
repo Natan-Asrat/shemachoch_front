@@ -1,8 +1,9 @@
 .dashboard{
   padding: 30px 35px;
   background: #EDF1F5;
-  width: calc(100vw-256px);
-  height: 100%;
+  width: calc(100vw-344px);
+  min-height: 100vh;
+  min-width: 650px;
 }
 
 .dashboard-top{

@@ -1,8 +1,9 @@
 .add-member{
   padding: 30px 35px;
   background: #EDF1F5;
-  width: calc(100vw-256px);
-  height: 100vh;
+  width: calc(100vw-336px);
+  min-height: 80vh;
+  min-width: 650px;
 }
 
 .add-member-top h1{
