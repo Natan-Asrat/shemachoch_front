@@ -10,7 +10,8 @@ import AddMember from './components/AddMember'
 import Goods from './components/Goods';
 import EditQuantity from './components/EditQuantity';
 import {getAuth} from 'firebase/auth';
-
+import Report from './components/Report';
+import DistributeItems from './components/DistributeItems';
 
 function App(){
 
@@ -44,7 +45,12 @@ function App(){
 
         <Route path={'/members/addMember'} element={<div className='main-body'> <Sidebar/> <div className='body-right'> <GroupsHeader/> <AddMember/></div> </div> } />
 
-        <Route path={'/reports'} element={<div className='main-body'><Sidebar/> <div className='body-right'><GroupsHeader/></div> </div>}/>
+
+        <Route path={'/members/distributeItems'} element={<div className='main-body'><Sidebar/> <div className='body-right'><GroupsHeader/> <DistributeItems/></div> </div> }/>
+
+        <Route path={'/reports'} element={<div className='main-body'><Sidebar/> <div className='body-right'><GroupsHeader/>
+        <Report/>
+        </div> </div>}/>
 
         <Route path={'/login'} element={<Login setToken={setToken}/>} />
 {/* 

@@ -87,8 +87,8 @@ function AddMember(){
           <p>Quantity of Sugar</p>
           <select name="quantitySugar" className="drop-down"  onChange={handleChange} >
           <option value="0">None</option>
-            <option value="3"> 3 </option>
-            <option value="5"> 5 </option>
+            <option value="3"> 3 {'kgs'} </option>
+            <option value="5"> 5 {'kgs'}</option>
           </select>
         </div>
 
@@ -99,8 +99,8 @@ function AddMember(){
           <p>Quantity of Oil</p>
           <select  name="quantityOil" className="drop-down" onChange={handleChange}>
           <option value="0">None</option>
-            <option value="3"> 3 </option>
-            <option value="5"> 5 </option>
+            <option value="3"> 3 {'litres'} </option>
+            <option value="5"> 5 {'litres'}</option>
           </select>
         </div>
 

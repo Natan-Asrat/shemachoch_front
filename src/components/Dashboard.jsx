@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./css/Dashboard.css";
 import ClipLoader from 'react-spinners/ClipLoader';
-import {getAuth, signInWithCustomToken, RecaptchaVerifier} from 'firebase/auth'
+import {getAuth, signInWithCustomToken, RecaptchaVerifier} from 'firebase/auth';
+import { Link } from "react-router-dom";
 
 function Dashboard() {
   const [membersData,setMembersData]=useState([]);
@@ -43,7 +44,9 @@ function Dashboard() {
       <div>
         <div className="dashboard-top">
           <h1>Dashboard</h1>
+         <Link to='/members/distributeItems'>
           <button>+Distribute good</button>
+         </Link> 
         </div>
 
         <div className="dashboard-middle">
@@ -167,7 +170,7 @@ function Dashboard() {
         </div>
           <div className="btn-container">
             <button className="search-btn">Search members</button>
-            <button className="distribute-btn">+Distribute good</button>
+            {/* <button className="distribute-btn">+Distribute good</button> */}
           </div>
          
         </div>

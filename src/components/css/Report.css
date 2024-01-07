@@ -1,0 +1,56 @@
+.report{
+  padding: 30px 35px;
+  background: #EDF1F5;
+  width: calc(100vw-344px);
+  min-height: 100vh;
+  min-width: 650px;
+}
+
+.report-top{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.report-top h1{
+  font-size: 2.2vw;
+}
+
+.report-top button{
+  width: 160px;
+  height: 46px;
+  background-color: red;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.report-top button:hover{
+  background-color: rgb(255, 138, 49);
+}
+
+.report-group{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.report-bottom table{
+  width: 100%;
+  background-color: white;
+  margin-top: 20px;
+}
+
+
+
+.report-bottom table th{
+  border: none;
+}
+
+.report-bottom table td{
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+  font-size: 1.2vw;
+}

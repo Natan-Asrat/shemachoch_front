@@ -1,8 +1,44 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./css/Goods.css";
+import ClipLoader from "react-spinners/ClipLoader";
 
 function Goods() {
+  const [oilData, setOilData] = useState([]);
+  const [loadingTable, setLoadingTable] = useState(true);
+  const [sugarData, setSugarData] = useState([]);
+  
+
+  useEffect(() => {
+    fetch("https://shemachoch.onrender.com/app/oil_stock.json", {
+      method: "GET",
+      headers: {
+        Authorization: localStorage.getItem("user"),
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setOilData(Array.isArray(data) ? data : []);
+        setLoadingTable(false);
+      });
+  }, []);
+
+  useEffect(() => {
+    fetch("https://shemachoch.onrender.com/app/sugar_stock.json", {
+      method: "GET",
+      headers: {
+        Authorization: localStorage.getItem("user"),
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setSugarData(Array.isArray(data) ? data : []);
+        setLoadingTable(false);
+      });
+  }, []);
+
+ 
+
   return (
     <div className="goods">
       <div className="goods-top">
@@ -32,21 +68,25 @@ function Goods() {
               <th className="oil-th">Total Members</th>
             </tr>
 
-            <tr>
-              <th className="oil-td">Group 1</th>
-              <th className="oil-td">85 litres</th>
-              <th className="oil-td">90 litres</th>
-              <th className="oil-td">170</th>
-              <th className="oil-td">200</th>
-            </tr>
-
-            <tr>
-              <th className="oil-td">Group 2</th>
-              <th className="oil-td">61 litres</th>
-              <th className="oil-td">72 litres</th>
-              <th className="oil-td"> - </th>
-              <th className="oil-td">200</th>
-            </tr>
+            {loadingTable ? (
+              <tr>
+                <th colSpan={7}>
+                  <ClipLoader color={"#123abc"} loading={true} size={30} />
+                </th>
+              </tr>
+            ) : (
+              oilData.map((item) => {
+                return (
+                  <tr>
+                    <th className="oil-td">{item.group}</th>
+                    <th className="oil-td">{item.required_stock} {'litres'}</th>
+                    <th className="oil-td">{item.stock}</th>
+                    <th className="oil-td">{item.received_members}</th>
+                    <th className="oil-td">{item.total_members}</th>
+                  </tr>
+                );
+              })
+            )}
           </table>
         </div>
 
@@ -62,7 +102,30 @@ function Goods() {
                 <th className="sugar-th">Total Members</th>
               </tr>
 
-              <tr>
+              {
+                loadingTable ? (
+                  <tr>
+                    <th colSpan={7}>
+                      <ClipLoader color={"#123abc"} loading={true} size={30} />
+                    </th>
+                  </tr>
+                ) : (
+                  sugarData.map((item)=>{
+                    return(
+                      <tr>
+                        <th className="oil-td">{item.group}</th>
+                        <th className="oil-td">{item.required_stock} {'kilogram'}</th>
+                        <th className="oil-td">{item.stock}</th>
+                        <th className="oil-td">{item.received_members}</th>
+                        <th className="oil-td">{item.total_members}</th>
+                      </tr>
+                    )
+                  })
+                )
+              }
+
+
+              {/* <tr>
                 <th className="oil-td">Group 1</th>
                 <th className="oil-td">20 Kgs</th>
                 <th className="oil-td">45 Kgs</th>
@@ -76,7 +139,7 @@ function Goods() {
                 <th className="oil-td">65 Kgs</th>
                 <th className="oil-td">105</th>
                 <th className="oil-td">200</th>
-              </tr>
+              </tr> */}
             </table>
           </div>
         </div>

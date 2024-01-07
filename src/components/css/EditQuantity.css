@@ -46,6 +46,10 @@
   margin-top: 30px;
 }
 
+.edit-quantity-bottom p{
+  color: black;
+}
+
 .edit-quantity-bottom input{
   width: 400px;
   padding: 10px 2px;

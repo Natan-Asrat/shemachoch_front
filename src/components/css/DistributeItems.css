@@ -1,0 +1,46 @@
+.distribute-items{
+  padding: 30px 35px;
+  background: #EDF1F5;
+  width: calc(100vw-344px);
+  min-height: 100vh;
+  min-width: 650px;}
+
+  .distribute-items-top{
+    margin-bottom: 50px;
+  }
+
+  .distribute-items-middle{
+    display: flex;
+    gap: 5vw;
+  }
+
+  .distribute-items-middle input{
+    width: 35vw;
+    background-color: transparent;
+    border: 1px solid rgb(170, 166, 166);
+    padding:1.1vw 1vw;
+  }
+
+  .distribute-items-middle button{
+    color: white;
+    background-color: black;
+    padding: 1vw 2vw;
+    border: none;
+    cursor: pointer;
+  }
+
+  .distribute-items-middle button:hover{
+    background-color: rgb(39, 37, 37);
+  }
+
+  .distribute-items-bottom table{
+    background-color: white;
+    width: 68%;
+    margin-top: 30px;
+  }
+
+  .distribute-items-bottom table td{
+    text-align: center;
+    font-size: 1.5vw;
+    padding: 15px 20px;
+  }
