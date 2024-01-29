@@ -53,7 +53,8 @@ function EditQuantity() {
     },
     body: JSON.stringify(oilData),
   }).then( response => response.json())
-    .then(data => console.log(data))
+    .then(data => {console.log(data)
+      alert('Quantity Updated')})
     .catch((error) => {
       // Handle any errors that might occur
       alert(error);
@@ -81,7 +82,6 @@ function EditQuantity() {
  const handleSubmit =(e)=>{
   e.preventDefault();
   if(Quantity.oil!==null){
-    
     handleOilSubmit(e);
   }
   if(Quantity.sugar!==null){
@@ -102,7 +102,7 @@ function EditQuantity() {
           <Link to="/goods" style={{ color: "grey", textDecoration: "none" }}>
             Goods
           </Link>{" "}
-          {">"} Edit Quantity{" "}
+          {">"} Add Quantity{" "}
         </h1>
       </div>
 

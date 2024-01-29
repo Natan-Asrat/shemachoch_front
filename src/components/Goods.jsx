@@ -45,12 +45,12 @@ function Goods() {
         <h1>Goods</h1>
 
         <Link
-          to="/goods/editQuantity"
+          to="/goods/addQuantity"
           style={{ color: "grey", textDecoration: "none" }}
         >
           <button>
             <img src="images/edit.png" alt="" />
-            Edit Quantity
+            Add Quantity
           </button>
         </Link>
       </div>
@@ -62,8 +62,9 @@ function Goods() {
           <table>
             <tr>
               <th className="oil-th">Group</th>
-              <th className="oil-th">Oil Required</th>
-              <th className="oil-th">Oil in Stock</th>
+              <th className="oil-th">Required</th>
+              <th className="oil-th">In Stock</th>
+              <th className="oil-th">Total</th>
               <th className="oil-th">Members Received</th>
               <th className="oil-th">Total Members</th>
             </tr>
@@ -78,9 +79,10 @@ function Goods() {
               oilData.map((item) => {
                 return (
                   <tr>
-                    <th className="oil-td">{item.group}</th>
+                    <th className="oil-td">{item.groupName}</th>
                     <th className="oil-td">{item.required_stock} {'litres'}</th>
-                    <th className="oil-td">{item.stock}</th>
+                    <th className="oil-td">{item.remaining_stock_words}</th>
+                    <th className="oil-td">{item.total_stock_words}</th>
                     <th className="oil-td">{item.received_members}</th>
                     <th className="oil-td">{item.total_members}</th>
                   </tr>
@@ -96,8 +98,9 @@ function Goods() {
             <table>
               <tr>
                 <th className="sugar-th">Group</th>
-                <th className="sugar-th">Sugar Required</th>
-                <th className="sugar-th">Sugar in Stock</th>
+                <th className="sugar-th">Required</th>
+                <th className="sugar-th">In Stock</th>
+                <th className="sugar-th">Total</th>
                 <th className="sugar-th">Members Received</th>
                 <th className="sugar-th">Total Members</th>
               </tr>
@@ -113,9 +116,10 @@ function Goods() {
                   sugarData.map((item)=>{
                     return(
                       <tr>
-                        <th className="oil-td">{item.group}</th>
+                        <th className="oil-td">{item.groupName}</th>
                         <th className="oil-td">{item.required_stock} {'kilogram'}</th>
-                        <th className="oil-td">{item.stock}</th>
+                        <th className="oil-td">{item.remaining_stock_words}</th>
+                        <th className="oil-td">{item.total_stock_number}</th>
                         <th className="oil-td">{item.received_members}</th>
                         <th className="oil-td">{item.total_members}</th>
                       </tr>

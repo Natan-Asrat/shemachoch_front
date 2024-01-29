@@ -1,27 +1,87 @@
 import React from "react";
-import './css/Report.css';
+import { useState } from "react";
+import "./css/Report.css";
 import { Link } from "react-router-dom";
 import Groups from "./Groups";
+import { useEffect } from "react";
 
-  function Report(){
+function Report() {
+  let [popup, setPopup] = useState(false);
+  let [main, setMain] = useState(true);
+
+  let handleDownload = () => {
+    setPopup(true);
+  };
+
+  let download_oil_report = () => {
+    fetch("https://shemachoch.onrender.com/app/download_oil_report", {
+      method: "GET",
+      headers: {
+        Authorization: localStorage.getItem("user"),
+      },
+    }).then((response) => {
+      if (response.status === 200) {
+        <a href={response.url}></a>;
+      }
+    });
+  };
+
+  let download_sugar_report = () => {
+    fetch("https://shemachoch.onrender.com/app/download_sugar_report", {
+      method: "GET",
+      headers: {
+        Authorization: localStorage.getItem("user"),
+      },
+    });
+  };
+
+  useEffect(() => {
+    fetch("https://shemachoch.onrender.com/app/download_suagar_report/", {
+      method: "GET",
+      headers: {
+        Authorization: localStorage.getItem("user"),
+      },
+    });
+  }, []);
+
   return (
     <div className="report">
       <div className="report-top">
         <h1>Report</h1>
 
-        <Link to="/members/addMember">
-          <button>Download Report</button>
-        </Link>
+        <button onClick={handleDownload}>Download Report</button>
       </div>
 
       <div className="report-middle">
+        {popup && (
+          <div>
+            <div className="popup-inner">
+              <div className="popup-buttons">
+                <a href="https://shemachoch.onrender.com/app/download_oil_report">
+                  <button className="popup-button">Download oil Report</button>
+                </a>
 
-    <div className="report-group">
-         <Groups / >
-    </div>
-         
+                <a href="https://shemachoch.onrender.com/app/download_sugar_report">
+                  <button className="popup-button">
+                    Download Sugar Report
+                  </button>
+                </a>
+              </div>
 
-      <div className="dashboard-middle">
+              <div>
+                <button className="popup-close" onClick={() => setPopup(false)}>
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        <div className="report-group">
+          <Groups />
+        </div>
+
+        <div className="dashboard-middle">
           <div className="status">
             <div className="status-top">
               <div>
@@ -63,37 +123,34 @@ import Groups from "./Groups";
           </div>
         </div>
 
-
         <div className="report-bottom">
           <table>
-          <tr >
-                <th>Item</th>
-                <th>Item Required</th>
-                <th>Item in Stock</th>
-                <th>Members Recieved</th>
-                <th>Total Members</th>
-          </tr>
-          <tr >
-                <td>Oil</td>
-                <td>65 Litres</td>
-                <td>90 Litres</td>
-                <td>170</td>
-                <td>200</td>
-          </tr>
-          <tr >
-                <td>Sugar</td>
-                <td>65 Kgs</td>
-                <td>90 Kgs</td>
-                <td>124</td>
-                <td>200</td>
-          </tr>
+            <tr>
+              <th>Item</th>
+              <th>Item Required</th>
+              <th>Item in Stock</th>
+              <th>Members Recieved</th>
+              <th>Total Members</th>
+            </tr>
+            <tr>
+              <td>Oil</td>
+              <td>65 Litres</td>
+              <td>90 Litres</td>
+              <td>170</td>
+              <td>200</td>
+            </tr>
+            <tr>
+              <td>Sugar</td>
+              <td>65 Kgs</td>
+              <td>90 Kgs</td>
+              <td>124</td>
+              <td>200</td>
+            </tr>
           </table>
         </div>
-
       </div>
-
     </div>
   );
-};
+}
 
 export default Report;

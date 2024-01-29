@@ -63,6 +63,8 @@
   font-size: 1.2vw;
   font-weight: 600;
   color: rgb(144, 98, 98);
+  display: flex;
+  align-items: center;
 }
 
 .status-bottom{
@@ -135,10 +137,14 @@
 .dashboard-bottom .search-btn{
   width: 170px;
   height: 46px;
-  background: #1D242E;
+  background: #0b0d10;
   border: none;
   color: white;
   cursor: pointer;
+}
+
+.dashboard-bottom .search-btn:hover{
+  background: rgb(58, 47, 47);
 }
 
 .dashboard-bottom .distribute-btn{

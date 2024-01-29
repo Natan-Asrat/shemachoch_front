@@ -1,0 +1,51 @@
+.member{
+  padding: 30px 35px;
+  background: #EDF1F5;
+  width: calc(100vw-344px);
+  min-height: 100vh;
+  min-width: 650px;
+}
+
+.member-top{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.member-top button{
+  padding: 10px 15px;
+  background-color: rgb(100, 100, 226);
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.member-top button:hover{
+  background-color: rgb(122, 122, 235);
+}
+
+.member-middle{
+  margin-top: 40px;
+}
+
+.member-middle table{
+  background-color: white;
+  width: 100%;
+  margin-top: 30px;
+}
+
+.member-middle button{
+  margin-top: 30px;
+  padding: 10px 50px;
+  background-color: rgb(26, 233, 26);
+  border: none;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  
+}
+
+.member-middle button:hover{
+  background-color: rgb(47, 255, 47);
+}

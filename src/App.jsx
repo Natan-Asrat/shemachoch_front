@@ -12,6 +12,7 @@ import EditQuantity from './components/EditQuantity';
 import {getAuth} from 'firebase/auth';
 import Report from './components/Report';
 import DistributeItems from './components/DistributeItems';
+import Member from './components/Member';
 
 function App(){
 
@@ -39,7 +40,7 @@ function App(){
         <Route path={'/goods'} element={<div className='main-body'> <Sidebar/> <div className='body-right'><GroupsHeader/> <Goods/>
           </div>  </div>}/>
 
-        <Route path={'/goods/editQuantity'} element={<div className='main-body'> <Sidebar/> <div className='body-right'><GroupsHeader/> <EditQuantity/></div>  </div>}/>
+        <Route path={'/goods/addQuantity'} element={<div className='main-body'> <Sidebar/> <div className='body-right'><GroupsHeader/> <EditQuantity/></div>  </div>}/>
 
         <Route path={'/members'} element={<div className='main-body'><Sidebar/> <div className='body-right'><GroupsHeader/> <Members/></div>  </div>}/>
 
@@ -52,6 +53,8 @@ function App(){
         <Report/>
         </div> </div>}/>
 
+        <Route path={'/members/distributeItems/members/:id'} element={<div className='main-body'><Sidebar/> <div className='body-right'><GroupsHeader/> <Member/></div> </div> }/>
+        
         <Route path={'/login'} element={<Login setToken={setToken}/>} />
 {/* 
         <Route path={'/login'} element={<Login/>} /> */}

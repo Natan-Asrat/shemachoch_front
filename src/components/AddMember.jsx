@@ -26,7 +26,7 @@ function AddMember(){
     })
   }
 
-  // console.log(formData);
+  console.log(formData);
 
   const handleAddMembers=(event)=>{
     event.preventDefault();
@@ -77,7 +77,7 @@ function AddMember(){
 
         <div>
           <p>Resident ID Number</p>
-          <input type="text" name="residentId" id="" onChange={handleChange} />
+          <input type="number" name="residentId" id="" onChange={handleChange} />
         </div>
 
         <div>

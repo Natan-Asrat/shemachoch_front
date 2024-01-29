@@ -29,6 +29,15 @@
     cursor: pointer;
   }
 
+  .distribute-items-bottom{
+    margin-top: 50px;
+    background-color: white;
+    width:60vw;
+    overflow: scroll;
+    height: 300px;
+    position: relative;
+  }
+
   .distribute-items-middle button:hover{
     background-color: rgb(39, 37, 37);
   }
