@@ -13,6 +13,7 @@ import {getAuth} from 'firebase/auth';
 import Report from './components/Report';
 import DistributeItems from './components/DistributeItems';
 import Member from './components/Member';
+import UpdateMember from './components/UpdateMember';
 
 function App(){
 
@@ -54,6 +55,8 @@ function App(){
         </div> </div>}/>
 
         <Route path={'/members/distributeItems/members/:id'} element={<div className='main-body'><Sidebar/> <div className='body-right'><GroupsHeader/> <Member/></div> </div> }/>
+
+        <Route path={'/members/updatemember/:id'} element={<div className='main-body'><Sidebar/> <div className='body-right'><GroupsHeader/> <UpdateMember/></div> </div>}/>
         
         <Route path={'/login'} element={<Login setToken={setToken}/>} />
 {/* 

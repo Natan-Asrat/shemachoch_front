@@ -106,9 +106,11 @@ let handleSubmit = (e)=>{
           ) : (  
                 filtered ? newData.map((item) => {
                     return (
-                      <tr>
+                      
+                      
+                         <tr>
                         <td>{item.id}</td>
-                        <td>{item.name}</td>
+                        <Link to={`/members/updatemember/${item.id}`} style={{ textDecoration: "none" }}>  <td>{item.name}</td></Link>
                         <td> Group {item.group}</td>
                         <td>{item.quantityOil} litre</td>
                         <td>
@@ -119,13 +121,18 @@ let handleSubmit = (e)=>{
                           <input type="checkbox" checked={item.hasReceivedSugar} />
                         </td>
                       </tr>
+                      
+
+                     
                     );
                   }) :
                   membersData.map((item) => {
                     return (
-                      <tr>
+
+                      
+                         <tr>
                         <td>{item.id}</td>
-                        <td>{item.name}</td>
+                        <Link to={`/members/updatemember/${item.id}`} style={{ textDecoration: "none" }}>  <td>{item.name}</td> </Link>
                         <td> Group {item.group}</td>
                         <td>{item.quantityOil} litre</td>
                         <td>
@@ -136,6 +143,9 @@ let handleSubmit = (e)=>{
                           <input type="checkbox" checked={item.hasReceivedSugar} />
                         </td>
                       </tr>
+                      
+
+                     
                     );
                   })
           )}
